@@ -17,18 +17,43 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Tododb'); 
 
+var db = mongoose.conenction;
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-
 var routes = require('./api/routes/todoListRoutes'); //importing route
 routes(app); //register the route
+
+var nameSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String
+   });
+
+var User = mongoose.model("User", nameSchema);
+
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html");
+   });
+
+app.post("/addname", (req, res) => {
+ var myData = new User(req.body);
+ myData.save()
+ .then(item => {
+ res.send("item saved to database");
+ })
+ .catch(err => {
+ res.status(400).send("unable to save to database");
+ });
+});
+
 
 app.use(function(req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
   });
+
+
 
 
 
