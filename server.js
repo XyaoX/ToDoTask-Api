@@ -15,7 +15,7 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://user:pass@host:port/db'); 
+mongoose.connect('mongodb://localhost/Tododb'); 
 
 var db = mongoose.conenction;
 
