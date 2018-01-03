@@ -15,7 +15,7 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb'); 
+mongoose.connect('mongodb://XyaoX:monkeydatabase@ds113580.mlab.com:13580/heroku_tw7wz6qx'); 
 
 var db = mongoose.conenction;
 
