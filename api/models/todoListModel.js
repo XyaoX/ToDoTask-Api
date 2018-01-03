@@ -23,10 +23,5 @@ var TaskSchema = new Schema({
   }
 });
 
-var nameSchema = new Schema({
-    firstName:String,
-    lastName:String
-});
 
 module.exports = mongoose.model('Tasks', TaskSchema);
-module.exports = mongoose.model('Names', nameSchema);
