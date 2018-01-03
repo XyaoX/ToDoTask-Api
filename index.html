@@ -2,15 +2,22 @@
 <html>
  <head>
  <title>Intro to Node and MongoDB</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
  </head>
  
  <body>
- <h1>Into to Node and MongoDB</h1>
+<div class="container">
+    <!-- Ignore the br, its ugly, i know -->
+ <h1>Intro to Node and MongoDB</h1>
  <form method="post" action="/addname">
- <label>Enter Your Name</label><br>
- <input type="text" name="firstName" placeholder="Enter first name..." required>
- <input type="text" name="lastName" placeholder="Enter last name..." required>
- <input type="submit" value="Add Name">
+    <div class="form-group">
+ <label>First Name</label>
+ <input type="text" class="form-control" name="firstName" placeholder="Enter first name..." required>
+ <label>Last Name</label>
+ <input type="text" class="form-control" name="lastName" placeholder="Enter last name..." required><br>
+ <input type="submit" value="Submit">
+</div>
  </form>
+ </div>
  </body>
 </html>
