@@ -9,7 +9,7 @@ exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {
     if (err)
       res.send(err);
-    console.log(req.method+" on "+ req.url);
+    console.log(req.method+" on "+ req.url + " at " + new Date().toISOString());
     res.json(task);
   });
 };
