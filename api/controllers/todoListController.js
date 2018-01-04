@@ -3,6 +3,7 @@
 
 var mongoose = require('mongoose'),
   Task = mongoose.model('Tasks');
+  var User = mongoose.model('User');
 
 exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {
@@ -12,6 +13,13 @@ exports.list_all_tasks = function(req, res) {
   });
 };
 
+exports.list_all_name = function(req,res){
+  User.find({},function(err,name){
+    if(err)
+      res.send(err);
+    res.json(name);
+  });
+};
 
 
 
@@ -24,6 +32,14 @@ exports.create_a_task = function(req, res) {
   });
 };
 
+exports.create_a_name = function (req,res){
+  var new_name = new User(req.body);
+  new_name.save(function(err,task){
+    if (err)
+    res.status(400).send("unable to save to database");
+    res.end('Data has been stored in database.');
+  })
+}
 
 exports.read_a_task = function(req, res) {
   Task.findById(req.params.taskId, function(err, task) {
