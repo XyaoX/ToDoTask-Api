@@ -25,5 +25,9 @@ module.exports = function(app) {
     .post(todoList.create_a_note);
 
   app.route('/notebook/:noteId')
-    .get(todoList.read_a_note);
+    .get(todoList.read_a_note)
+    .put(todoList.update_a_note);
+
+  app.route('/notebook/poll/:random')
+    .get(todoList.poll_page);
 };

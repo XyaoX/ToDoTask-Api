@@ -4,8 +4,6 @@ html, body{
     height:100%;
     box-sizing: border-box;
     background-color:eee;
-    display:flex;
-    align-items:center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -19,6 +17,7 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
 }
 
 .container {
+    margin-top: 10%;
     border: 2px solid #82b1ff;
     padding-left:10px;
     font-size:15px;
@@ -31,4 +30,18 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
 
 .option {
     margin: 10px 0px;
+}
+
+button {
+    margin:10px;
+}
+
+#optionOne,#optionTwo,#optionThree{
+    /* text-decoration: none; */
+    color:black;
+    font-style:normal;
+}
+
+.brand-logo {
+    pointer-events: none;
 }

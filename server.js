@@ -1,6 +1,7 @@
 // Initiating instances
 const express = require('express'),
   app = express(),
+  config = require('./config.json'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Task = require('./api/models/todoListModel'), //created model loading here
@@ -9,11 +10,16 @@ const express = require('express'),
   
 // Mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-const myUri = 'mongodb://XyaoX:monkeydatabase@ds113580.mlab.com:13580/heroku_tw7wz6qx'; 
+const myUri = `mongodb://${config.username}:${config.password}@ds113580.mlab.com:13580/heroku_tw7wz6qx`; 
 mongoose.connect(myUri, { useMongoClient: true });
 
 
 // Middleware
+app.use('/', function(res,req){
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
